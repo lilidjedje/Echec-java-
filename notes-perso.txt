@@ -1,0 +1,3 @@
+Difference entre enum et class : 
+Class -> pour avoir des attribus et des comportements 
+Enum -> Pour juste avoir un ensemble fixe d'éléments 
