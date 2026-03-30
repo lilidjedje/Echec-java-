@@ -15,10 +15,11 @@ class Piece {
         this.couleur = couleur;
     }
 
-    @Override
-    public String toString() {
-        return couleur.toString().charAt(0) + "_" + type.toString().charAt(0);
-    }
+@Override
+public String toString() {
+    return String.valueOf(couleur.toString().charAt(0))
+         + type.toString().charAt(0);
+}
 }
 
 public class Echiquier {
@@ -57,21 +58,41 @@ public class Echiquier {
         plateau[7][4] = new Piece(TypePiece.ROI, Couleur.BLANC);
     }
 
-    public void afficher() {
-        for (int i = 0; i < 8; i++) {
-            for (int j = 0; j < 8; j++) {
-                if (plateau[i][j] == null) {
-                    System.out.print(" . ");
-                } else {
-                    System.out.print(plateau[i][j] + " ");
-                }
-            }
-            System.out.println();
-        }
+public void afficher() {
+    // Afficher les lettres en haut
+    System.out.print("   ");
+    for (char c = 'A'; c <= 'H'; c++) {
+        System.out.print(" " + c + " ");
     }
+    System.out.println();
+
+    for (int i = 0; i < 8; i++) {
+        System.out.print((8 - i) + "  ");
+
+        for (int j = 0; j < 8; j++) {
+            if (plateau[i][j] == null) {
+                System.out.print(" . ");
+            } else {
+                System.out.print(plateau[i][j] + " ");
+            }
+        }
+
+        // Numéro de ligne à droite
+        System.out.print(" " + (8 - i));
+        System.out.println();
+    }
+
+    // Afficher les lettres en bas
+    System.out.print("   ");
+    for (char c = 'A'; c <= 'H'; c++) {
+        System.out.print(" " + c + " ");
+    }
+    System.out.println();
+}
 
     public static void main(String[] args) {
         Echiquier echiquier = new Echiquier();
+        System.out.println("Echiquier initialisé : ");
         echiquier.afficher();
     }
 }
