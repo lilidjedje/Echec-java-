@@ -1,0 +1,1 @@
+Difference entre enum et class : 
